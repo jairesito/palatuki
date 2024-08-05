@@ -8,7 +8,8 @@ const image = document.getElementById('cover'),
     prevBtn = document.getElementById('prev'),
     nextBtn = document.getElementById('next'),
     playBtn = document.getElementById('play'),
-    background = document.getElementById('bg-img');
+    background = document.getElementById('bg-img'),
+    volumeSlider = document.getElementById('volume-slider');
 
 const music = new Audio();
 
@@ -110,11 +111,16 @@ function setProgressBar(e) {
     music.currentTime = (clickX / width) * music.duration;
 }
 
+function setVolume(e) {
+    music.volume = e.target.value;
+}
+
 playBtn.addEventListener('click', togglePlay);
 prevBtn.addEventListener('click', () => changeMusic(-1));
 nextBtn.addEventListener('click', () => changeMusic(1));
 music.addEventListener('ended', () => changeMusic(1));
 music.addEventListener('timeupdate', updateProgressBar);
 playerProgress.addEventListener('click', setProgressBar);
+volumeSlider.addEventListener('input', setVolume);
 
 loadMusic(songs[musicIndex]);

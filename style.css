@@ -141,3 +141,13 @@ h3{
     position: relative;
     top: 3px;
 }
+
+.volume-control {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#volume-slider {
+    width: 80%;
+}
